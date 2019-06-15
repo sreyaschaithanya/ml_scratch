@@ -28,7 +28,7 @@ class Dense(Layers):
         """
         Linear Output
         """
-        self.inputs = inputs
+        self.input = input
         return input @ self.params["w"] + self.params["b"]
 
     def backward(self,grad):
