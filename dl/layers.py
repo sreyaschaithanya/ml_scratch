@@ -38,6 +38,3 @@ class Dense(Layers):
         local gradient = input
         """
         return np.dot(self.input.T , grad)
-    
-    def shape(self):
-        return zip(self.input_size, self.neurons)
