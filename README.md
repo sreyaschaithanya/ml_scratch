@@ -4,4 +4,4 @@ activation
 loss
 data
 optimizer
-liner
+r
