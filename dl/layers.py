@@ -38,3 +38,17 @@ class Dense(Layers):
         local gradient = input
         """
         return np.dot(self.input.T , grad)
+
+def Activation(Layers):
+    """
+    Base class for all activation functions
+    Will take input and compute the output
+    """
+    def __init__(self):
+        pass
+    
+    def forward(self,input):
+        pass
+
+    def backward(self, grad):
+        pass
