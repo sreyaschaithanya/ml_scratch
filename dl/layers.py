@@ -7,7 +7,7 @@ class Layers:
     def __init__(self):
         self.params = {}
     
-    def forward(self,input):
+    def forward(self,input_data):
         raise NotImplementedError
     
     def backward(self,grad):
@@ -22,14 +22,18 @@ class Dense(Layers):
         self.input_size  = input_size
         self.neurons = neurons
         self.params["w"] = np.random.randn(input_size,neurons)
-        self.params["b"] = np.random.randn(neurons)
+        self.params["b"] = np.random.randn(1,neurons)
+        self.grads = {}
 
-    def forward(self, input):
+    def forward(self, input_data):
         """
         Linear Output
         """
-        self.input = input
-        return input @ self.params["w"] + self.params["b"]
+        self.input_data = input_data
+        #print(input_data.shape,self.params["w"].shape,self.params["b"].shape)
+        #print((input_data @ self.params["w"] + self.params["b"]).shape)
+        #print(input_data @ self.params["w"] + self.params["b"])
+        return input_data @ self.params["w"] + self.params["b"]
 
     def backward(self,grad):
         """
@@ -37,6 +41,6 @@ class Dense(Layers):
         inflow gradient * local gradient
         local gradient = input
         """
-        self.grads["w"] = self.input.T @ grad
+        self.grads["w"] = self.input_data.T @ grad
         self.grads["b"] = np.sum(grad, axis=0)
-        return self.input.T @ grad
+        return self.input_data.T @ grad
