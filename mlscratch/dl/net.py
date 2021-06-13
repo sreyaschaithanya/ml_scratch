@@ -1,8 +1,8 @@
 import numpy as np
 from itertools import islice
 
-import ml_scratch.dl.layers
-import ml_scratch.dl.loss
+import mlscratch.dl.layers
+import mlscratch.dl.loss
 
 
 class Net:

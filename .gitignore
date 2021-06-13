@@ -1,2 +1,3 @@
 .vscode/
-dl/__pycache__/
+*__pycache__/
+*.pyc

@@ -1,7 +1,7 @@
 import numpy as np
-from autograd import grad
+# from autograd import grad
 
-from ml_scratch.dl.layers import Layers
+from mlscratch.dl.layers import Layers
 
 
 def tanh(x):

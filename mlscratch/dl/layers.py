@@ -36,7 +36,7 @@ class Dense(Layers):
         # print(input_data.shape,self.params["w"].shape,self.params["b"].shape)
         # print((input_data @ self.params["w"] + self.params["b"]).shape)
         # print(input_data @ self.params["w"] + self.params["b"])
-        return input_data @ self.params["w"] + self.params["b"]
+        return np.matmul(input_data, self.params["w"]) + self.params["b"]
 
     def backward(self, grad):
         """
@@ -44,6 +44,6 @@ class Dense(Layers):
         inflow gradient * local gradient
         local gradient = input
         """
-        self.grads["w"] = self.input_data.T @ grad
+        self.grads["w"] = np.matmul(self.input_data.T, grad)
         self.grads["b"] = np.sum(grad, axis=0)
-        return self.input_data.T @ grad
+        return np.matmul(self.input_data.T, grad)
