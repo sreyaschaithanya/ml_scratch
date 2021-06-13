@@ -1,6 +1,6 @@
-from dl.activation import Tanh
-from dl.layers import Dense
-from dl.net import Net
+from ml_scratch.dl.activation import Tanh
+from ml_scratch.dl.layers import Dense
+from ml_scratch.dl.net import Net
 import numpy as np
 
 df = np.random.randn(5,2) * 10
